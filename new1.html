@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Selamat untuk Dita</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #d87b9a;
+    }
+
+    #slideshow {
+      max-width: 90%;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .active {
+      display: block;
+    }
+
+    #musicControl {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #d87b9a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #musicControl:hover {
+      background-color: #c06989;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selamat Ulang Tahun🌺🌸🤗💖</h1>
+
+  <div>
+    <img src="foto1.jpg"/>
+    <img src="foto2.jpg"/>
+    <img src="foto3.jpg"/>
+  </div>
+
+  
+
+   <!-- Musik -->
+  <audio controls autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung pemutar musik.
+  </audio>
+
+  <script>
+    // Slideshow logic
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }
+
+    setInterval(showSlides, 5000); // Ganti gambar setiap 5 detik
+
+    // Music control logic
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicControl');
+
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = 'Pause Musik 🎵';
+      } else {
+        music.pause();
+        btn.textContent = 'Play Musik ▶️';
+      }
+    });
+  </script>
+
+</body>
+</html>
